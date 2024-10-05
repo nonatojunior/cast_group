@@ -1,24 +1,11 @@
-# README
+# Cast Group
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Ruby: 3.2.0
+- Rails: 7.0.8
 
-Things you may want to cover:
+Gems:
+- Boostratp 5
+- Devise 4
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Banco de Dados
+- PostgreSQL
