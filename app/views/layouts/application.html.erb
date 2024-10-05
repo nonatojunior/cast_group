@@ -10,9 +10,19 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p> 
-    <p class="alert"><%= alert %></p> 
-    <%= yield %>
+  <body class="background">
+    <div class="container">
+      <% if notice %>
+        <div class="mt-5 alert alert-info alert-dismissible fade show" role="alert">
+          <%= notice %></span>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="mt-5 alert alert-warning alert-dismissible fade show" role="alert">
+          <%= alert %></span>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

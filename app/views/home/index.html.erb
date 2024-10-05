@@ -1,5 +1,29 @@
-<h1>Cast Group</h1>
-<% if user_signed_in? %> 
-  <%= button_to "Sair", destroy_user_session_path, method: :delete %> 
-  <div>Olá, <%= current_user.name %> seja bem vindo a Cast Group.</div> 
-<% end %>
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+  <div class="card" style="width: 60rem;">
+    <div class="card-body text-center">
+      <p class="fs-1">Cast Group</p>
+      <p class="fs-2">Olá, <%= current_user.name.present? ? current_user.name.upcase : 'USUÁRIO(A)' %> seja bem-vindo(a)!</p>
+      <p class="fs-3">Sua sessão finalizará em <span id="timer" class="text-danger fw-bold">60</span> segundos.</p>
+
+      <% if user_signed_in? %> 
+        <%= button_to "Desejo Sair", destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-danger mt-5' %> 
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  let timeLeft = 60;
+  const timerDisplay = document.getElementById("timer");
+
+  const countdown = setInterval(() => {
+    timeLeft--;
+    timerDisplay.textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(countdown);
+      //timerDisplay.textContent = "Sessão encerrada!";
+      location.reload();
+    }
+  }, 1000);
+</script>
